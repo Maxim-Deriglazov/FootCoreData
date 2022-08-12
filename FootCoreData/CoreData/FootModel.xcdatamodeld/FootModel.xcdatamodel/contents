@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H1824" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Club" representedClassName="Club" syncable="YES">
+        <attribute name="championsLeague" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="emblemClubName" optional="YES" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="clubLeag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="League" inverseName="legClub" inverseEntity="League"/>
+        <relationship name="clubPlay" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="playClub" inverseEntity="Player"/>
+    </entity>
+    <entity name="League" representedClassName="League" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="emblemName" optional="YES" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="legClub" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Club" inverseName="clubLeag" inverseEntity="Club"/>
+    </entity>
+    <entity name="Player" representedClassName="Player" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="injured" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="photo" optional="YES" attributeType="String"/>
+        <attribute name="photoURL" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <relationship name="playClub" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Club" inverseName="clubPlay" inverseEntity="Club"/>
+    </entity>
+    <elements>
+        <element name="Club" positionX="-267.4453125" positionY="153.921875" width="128" height="133"/>
+        <element name="League" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Player" positionX="99.45703125" positionY="209.953125" width="128" height="193"/>
+    </elements>
+</model>
