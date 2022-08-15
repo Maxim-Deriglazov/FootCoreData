@@ -1,2 +1,2 @@
 # FootCoreData
-dsfdsf
+Core Data & json parsing
